@@ -106,6 +106,7 @@ module.exports = function (webpackEnv) {
           : {},
       },
       {
+        // For importing css classes
         loader: require.resolve('css-loader'),
         options: {
           modules: {
