@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './FinishedQuiz.css'
 import Button from "../UI/Button/Button";
+import {Link} from 'react-router-dom'
 
 const FinishedQuiz = props => {
 
@@ -10,7 +11,7 @@ const FinishedQuiz = props => {
     }
 
     return total
-  },0)
+  }, 0)
 
   return (
     <div className={classes.FinishedQuiz}>
@@ -27,7 +28,7 @@ const FinishedQuiz = props => {
             return (
               <li key={index}>
                 <strong>{index + 1} </strong>
-                { quizItem.question }
+                {quizItem.question}
                 <i className={cls.join(' ')}/>
               </li>
             )
@@ -38,18 +39,20 @@ const FinishedQuiz = props => {
       <p>Correct {succesCount} in {props.quiz.length}</p>
 
       <div>
-       <Button
-         onClick={props.onRetry}
-         type="primary"
-       >
-         Repeat Quiz
-       </Button>
-
         <Button
-          type="success"
+          onClick={props.onRetry}
+          type="primary"
         >
-          List of Quizzes
+          Repeat Quiz
         </Button>
+
+        <Link to={'/'}>
+          <Button
+            type="success"
+          >
+            List of Quizzes
+          </Button>
+        </Link>
       </div>
     </div>
   )
