@@ -22,10 +22,7 @@ class QuizList extends Component {
   }
 
   async componentDidMount() {
-
     this.props.fetchQuizes()
-
-
   }
 
   render() {
@@ -34,15 +31,15 @@ class QuizList extends Component {
         <div>
           <h1>List of Quizzes</h1>
 
-          <ul>
-            {
-              this.renderQuizes()
-            }
-          </ul>
+
           {
-            this.props.loading && this.props.quizes.length !== 0
+            this.props.loading
               ? <Loader/>
-              : null
+              : <ul>
+                {
+                  this.renderQuizes()
+                }
+              </ul>
           }
         </div>
       </div>
